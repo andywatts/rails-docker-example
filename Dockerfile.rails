@@ -1,0 +1,10 @@
+# Dockerfile.rails
+FROM ruby:2.7.2 AS rails-base
+
+ENV INSTALL_PATH /app
+
+RUN mkdir -p $INSTALL_PATH
+RUN gem install rails bundler
+WORKDIR $INSTALL_PATH
+
+CMD ["/bin/sh"]

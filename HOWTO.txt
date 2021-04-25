@@ -1,0 +1,22 @@
+Create local repo
+	cd example-rails-docker
+	git init
+	gh repo create
+
+Create rails image
+	Create Dockerfile.rails
+	docker build -t rails-toolbox -f Dockerfile.rails .
+Install app using rails container
+	docker run -it -v $PWD:/app rails-toolbox rails new --skip-bundle .
+	Configure logging to STDOUT
+		# config/application.rb
+		config.log_level = :debug
+		config.log_tags  = [:subdomain, :uuid]
+		config.logger    = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
+Create app image
+	Create Dockerfile
+	docker build -t app .
+Create docker-compose.yml
+Create .env file
+docker-compose up app
+
