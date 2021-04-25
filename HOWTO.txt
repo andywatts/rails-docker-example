@@ -16,7 +16,10 @@ Install app using rails container
 Create app image
 	Create Dockerfile
 	docker build -t app .
-Create docker-compose.yml
-Create .env file
-docker-compose up app
+Docker-compose
+	Create docker-compose.yml
+	Create .env file
+	docker-compose up app
+Run tests (minitest)
+	docker-compose run app rails test
 
