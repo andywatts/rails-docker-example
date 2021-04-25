@@ -3,6 +3,12 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Log settings
+  config.log_level = :debug
+  config.log_tags  = [:subdomain, :uuid]
+  config.logger    = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
+
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
